@@ -7,4 +7,11 @@
 
 <script setup>
 import { Link } from '@inertiajs/vue3'
+import BlankLayout from '@/Layouts/BlankLayout.vue';
+</script>
+
+<script>
+export default {
+    layout: BlankLayout
+}
 </script>
