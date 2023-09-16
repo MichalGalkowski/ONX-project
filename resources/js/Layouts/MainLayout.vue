@@ -7,7 +7,7 @@
                 </h1>
             </div>
             <nav>
-                <div>Wpisy</div>
+                <div><Link href="/entry">Wpisy</Link></div>
                 <div>Użytkownicy</div>
             </nav>
         </div>
@@ -16,5 +16,6 @@
 </template>
 
 <script setup>
+import { Link } from '@inertiajs/vue3'
 
 </script>
