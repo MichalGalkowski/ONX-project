@@ -15,25 +15,21 @@ class EntryController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return inertia('Entry/Create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        Entry::create($request->validate([
+            'title' => 'required|min:3|max:255',
+            'content' => 'required',
+            'tags' => 'required',
+        ]));
+        return redirect()->route('entry.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Entry $entry)
     {
         return inertia(
@@ -44,27 +40,29 @@ class EntryController extends Controller
             );
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Entry $entry)
     {
-        //
+        return inertia(
+            'Entry/Edit',
+            [
+                'entry' => $entry
+            ]
+            );
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Entry $entry)
     {
-        //
+        $entry->update($request->validate([
+            'title' => 'required|min:3|max:255',
+            'content' => 'required',
+            'tags' => 'required',
+        ]));
+        return redirect()->route('entry.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Entry $entry)
     {
-        //
+        $entry->delete();
+        return redirect()->route('entry.index');
     }
 }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Entry extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title', 'content', 'tags'];
+    protected $casts = [
+        'tags' => 'array'
+    ];
 }
