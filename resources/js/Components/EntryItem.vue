@@ -3,15 +3,15 @@
         <div class="flex flex-col border-b-2">
             <h2 class="font-semibold text-lg">{{ props.entry.title }}</h2>
         </div>
-        <p>{{ props.entry.content }}</p>
+        <p class="m-4">{{ props.entry.content }}</p>
         <div class="flex">
             <div v-for="tag in entry.tags" :key="tag">
-            <p class="tag">#{{ tag }}</p>
+                <p class="tag">#{{ tag }}</p>
+            </div>
         </div>
-        </div>
-        <p class="date">Dodano: {{ createdAt }}</p>
+        <p class="date mt-4">Dodano: {{ createdAt }}</p>
         <p class="date">Ostatnia aktualizacja: {{ updatedAt }}</p>
-        <div class="flex justify-end mt-4">
+        <div class="flex justify-end mt-2 pt-4  border-t-2">
             <Link :href="route('entry.edit', props.entry.id)"><button class="btn">Edytuj</button></Link>
             <Link :href="route('entry.show', props.entry.id)"><button class="btn">Otwórz</button></Link>
         </div>

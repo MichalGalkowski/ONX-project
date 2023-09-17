@@ -16,7 +16,7 @@
 
 @layer components {
     .card {
-        @apply bg-sky-50 rounded-xl p-6 w-full;
+        @apply bg-sky-50 rounded-xl p-4 w-full lg:w-3/4;
     }
     .date {
         @apply text-gray-500 font-thin text-sm;

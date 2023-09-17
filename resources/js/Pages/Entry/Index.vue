@@ -1,7 +1,7 @@
 <template>
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center mb-16">
         <h1 class="text-sky-900 text-xl font-semibold my-2">Wpisy</h1>
-        <div class="w-full p-4" v-for="entry in entries" :key="entry.id">
+        <div class="w-full p-4 flex justify-center" v-for="entry in entries" :key="entry.id">
             <EntryItem :entry="entry" />
         </div>
         <Link :href="route('entry.create')"><button class="fab">+Dodaj wpis</button></Link>
