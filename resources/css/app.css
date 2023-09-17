@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    .fab {
+        @apply bg-orange-700 text-sky-100 text-lg font-semibold px-2 py-1 rounded-xl fixed bottom-6 right-6;
+    }
+    .btn {
+        @apply bg-sky-700 text-sky-100 text-lg font-semibold px-2 py-1 rounded-md ml-4;
+    }
+    .tag {
+        @apply bg-sky-300 text-sky-950 rounded-3xl py-1 px-2 m-1;
+    }
+}
+
+@layer components {
+    .card {
+        @apply bg-sky-50 rounded-xl p-6 w-full;
+    }
+    .date {
+        @apply text-gray-500 font-thin text-sm;
+    }
+}
+

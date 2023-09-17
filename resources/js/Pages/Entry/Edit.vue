@@ -21,7 +21,7 @@
             <button type="submit">Edytuj wpis</button>
         </div>
     </form>
-    <Link :href="`/entry/${props.entry.id}`" method="DELETE" as="button" >Usuń</Link>
+    <Link :href="route('entry.destroy', props.entry.id)" method="DELETE" as="button" >Usuń</Link>
 </template>
 
 <script setup>
@@ -38,7 +38,7 @@ const form = useForm({
     tags: props.entry.tags,
 })
 const tag = ref('')
-const update = () => form.put(`/entry/${props.entry.id}`)
+const update = () => form.put(route('entry.update', props.entry.id))
 const addTag = () => {
     if (tag.value.length >= 3) {
         form.tags.push(tag.value)

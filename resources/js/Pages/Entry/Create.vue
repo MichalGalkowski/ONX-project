@@ -3,14 +3,23 @@
         <div>
             <label>Tytuł</label>
             <input v-model="form.title" type="text">
+            <div v-if="form.errors.title">
+                {{ form.errors.title }}
+            </div>
         </div>
         <div>
             <label>Treść</label>
             <textarea v-model="form.content"></textarea>
+            <div v-if="form.errors.content">
+                {{ form.errors.content }}
+            </div>
         </div>
         <div>
             <input v-model="tag" type="text">
             <span @click="addTag">Dodaj Tag</span>
+            <div v-if="form.errors.tags">
+                {{ form.errors.tags }}
+            </div>
         </div>
         <label>Tagi</label>
         <div v-for="(displayTag, index) in form.tags" :key="index">
@@ -33,7 +42,7 @@ const form = useForm({
     tags: [],
 })
 const tag = ref('')
-const create = () => form.post('/entry')
+const create = () => form.post(route('entry.store'))
 const addTag = () => {
     if (tag.value.length >= 3) {
         form.tags.push(tag.value)
