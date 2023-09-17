@@ -13,7 +13,7 @@
         <p class="date">Ostatnia aktualizacja: {{ updatedAt }}</p>
         <div class="flex justify-end mt-2 pt-4  border-t-2">
             <Link :href="route('entry.edit', props.entry.id)"><button class="btn">Edytuj</button></Link>
-            <Link :href="route('entry.show', props.entry.id)"><button class="btn">Otwórz</button></Link>
+            <Link :href="route('entry.show', props.entry.id)"><button class="btn ml-4">Otwórz</button></Link>
         </div>
     </div>
 </template>

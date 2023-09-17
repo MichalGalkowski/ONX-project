@@ -1,27 +1,45 @@
 <template>
-    <form @submit.prevent="update" method="PUT">
-        <div>
-            <label>Tytuł</label>
-            <input v-model="form.title" type="text">
-        </div>
-        <div>
-            <label>Treść</label>
-            <textarea v-model="form.content"></textarea>
-        </div>
-        <div>
-            <input v-model="tag" type="text">
-            <span @click="addTag">Dodaj Tag</span>
-        </div>
-        <label>Tagi</label>
-        <div v-for="(displayTag, index) in form.tags" :key="index">
-            <h4>#{{ displayTag }}</h4>
-            <span @click="form.tags.splice(index, 1)">x</span>
-        </div>
-        <div>
-            <button type="submit">Edytuj wpis</button>
-        </div>
-    </form>
-    <Link :href="route('entry.destroy', props.entry.id)" method="DELETE" as="button" >Usuń</Link>
+    <div class="flex flex-col items-center w-full p-4">
+        <form class="w-full flex flex-col justify-center sm:w-2/3" @submit.prevent="update">
+            <div class="mt-4">
+                <label class="block">Tytuł:</label>
+                <input class="input" v-model="form.title" type="text">
+                <div class="error" v-if="form.errors.title">
+                    {{ form.errors.title }}
+                </div>
+            </div>
+            <div class="mt-4">
+                <label class="block">Treść:</label>
+                <textarea class="input" v-model="form.content"></textarea>
+                <div class="error" v-if="form.errors.content">
+                    {{ form.errors.content }}
+                </div>
+            </div>
+            <div class="mt-4">
+                <input class="input w-max" v-model="tag" type="text">
+                <span class="tagBtn cursor-pointer ml-4" @click="addTag">+Dodaj Tag</span>
+                <div class="error" v-if="form.errors.tags">
+                    {{ form.errors.tags }}
+                </div>
+            </div>
+            <div class="mt-4">
+                <label>Tagi:</label>
+                <div class="flex flex-wrap">
+                    <div v-for="(displayTag, index) in form.tags" :key="index">
+                        <h4 class="tag relative">#{{ displayTag }}
+                            <span class="text-red-500 cursor-pointer absolute bottom-4 right-0"
+                                @click="form.tags.splice(index, 1)">x</span>
+                        </h4>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full flex justify-evenly mt-6">
+                <button class="btn" type="submit">Edytuj wpis</button>
+                <Link :href="route('entry.destroy', props.entry.id)" method="DELETE" as="button"><span
+                    class="btn bg-red-400">Usuń</span></Link>
+            </div>
+        </form>
+    </div>
 </template>
 
 <script setup>
