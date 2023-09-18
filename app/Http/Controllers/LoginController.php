@@ -15,8 +15,8 @@ class LoginController extends Controller
     public function store(Request $request) {
 
         if(!Auth::attempt($request->validate([
-            'email'=> 'required|string|email',
-            'password'=>'required|string|min:6',
+            'email'=> 'required|email',
+            'password'=>'required|min:6',
         ]), true)) {
             throw ValidationException::withMessages([
                 'email' => 'Nie udało się zalogować'
@@ -26,7 +26,12 @@ class LoginController extends Controller
         return redirect()->intended();
     }
 
-    public function destroy() {
+    public function destroy(Request $request) {
 
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('login');
     }
 }

@@ -19,11 +19,11 @@
                 </div>
             </div>
             <div class="w-full flex justify-evenly mt-6">
-                <button class="btn" type="submit">Zaloguj</button>
+                <button class="btn" type="submit">Zaloguj się</button>
             </div>
         </form>
         <p class="mt-4">Nie masz konta?
-            <Link :href="route('entry.index')" class="border-sky-900 border-b-2 rounded-sm hover:bg-sky-50">Zarejestruj się</Link>
+            <Link :href="route('register')" class="border-sky-900 border-b-2 rounded-sm hover:bg-sky-50">Zarejestruj się</Link>
         </p>
     </div>
 </template>

@@ -14,7 +14,7 @@
         @apply bg-sky-700 text-sky-100 text-lg font-semibold px-2 py-1 rounded-md;
     }
     .tagBtn {
-        @apply text-sky-700 text-lg font-semibold px-2 py-1 rounded-md border-sky-700 rounded-lg border-2;
+        @apply text-sky-700 text-lg font-semibold px-2 py-1 border-sky-700 rounded-lg border-2;
     }
 
     .tag {
