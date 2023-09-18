@@ -21,7 +21,7 @@
         @apply bg-sky-300 text-sky-950 rounded-3xl py-1 px-2 m-1;
     }
     .input {
-        @apply w-full rounded-lg lg:w-3/4;
+        @apply w-full rounded-lg;
     }
 }
 
