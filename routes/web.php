@@ -5,6 +5,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\EntryController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,7 @@ Route::get('register', [RegisterController::class, 'create'])
 ->name('register');
 Route::post('register', [RegisterController::class, 'store'])
 ->name('register.store');
+
+Route::resource('user', UserController::class)
+->except(['create', 'store'])
+->middleware('auth');

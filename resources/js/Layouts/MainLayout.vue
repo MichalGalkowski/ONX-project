@@ -17,7 +17,7 @@
                 <div class="hover:text-orange-100">
                     <Link :href="route('entry.index')">Wpisy</Link>
                 </div>
-                <div class="hover:text-orange-100 sm:pl-4">Użytkownicy</div>
+                <div class="hover:text-orange-100 sm:pl-4"><Link :href="route('user.index')">Użytkownicy</Link></div>
                 <svg @click="isUserTabOpen = !isUserTabOpen" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                     class="w-6 h-6 ml-4 cursor-pointer text-sky-50">
