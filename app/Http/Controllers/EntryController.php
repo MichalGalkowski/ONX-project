@@ -11,7 +11,8 @@ class EntryController extends Controller
     public function index()
     {
         return inertia('Entry/Index', [
-            'entries' => Entry::all()
+            'entries' => Entry::orderByDesc('created_at')
+            ->paginate(5)
         ]);
     }
 

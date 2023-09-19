@@ -11,7 +11,8 @@ class UserController extends Controller
     public function index()
     {
         return inertia('User/Index', [
-            'users' => User::all()
+            'dbUsers' => User::orderByDesc('created_at')
+            ->paginate(10)
         ]);
     }
 
@@ -20,7 +21,7 @@ class UserController extends Controller
         return inertia(
             'User/Show',
             [
-                'user' => $user
+                'dbUser' => $user
             ]
             );
     }
@@ -30,7 +31,7 @@ class UserController extends Controller
         return inertia(
             'User/Edit',
             [
-                'user' => $user
+                'dbUser' => $user
             ]
             );
     }

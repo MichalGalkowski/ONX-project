@@ -2,9 +2,10 @@
     <div class="p-4 flex justify-center">
         <div class="card">
             <div class="flex flex-col border-b-2">
-                <h2 class="font-semibold text-lg">{{ props.user.name }} {{ props.user.surname }}</h2>
+                <h2 class="font-semibold text-lg">{{ props.dbUser.name }} {{ props.dbUser.surname }}</h2>
             </div>
-            <p class="m-4">{{ props.user.role }}</p>
+            <p class="m-4">{{ props.dbUser.email }}</p>
+            <p class="m-4">{{ props.dbUser.role }}</p>
             <p class="date mt-4">Zarejestrowany: {{ createdAt }}</p>
             <p class="date">Ostatnia aktualizacja: {{ updatedAt }}</p>
         </div>
@@ -13,8 +14,8 @@
 
 <script setup>
 const props = defineProps({
-    user: Object
+    dbUser: Object
 })
-const createdAt = new Date(props.user.created_at).toLocaleString('pl-PL')
-const updatedAt = new Date(props.user.updated_at).toLocaleString('pl-PL')
+const createdAt = new Date(props.dbUser.created_at).toLocaleString('pl-PL')
+const updatedAt = new Date(props.dbUser.updated_at).toLocaleString('pl-PL')
 </script>

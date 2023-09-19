@@ -55,7 +55,7 @@ const form = useForm({
 const tag = ref('')
 const create = () => form.post(route('entry.store'))
 const addTag = () => {
-    if (tag.value.length >= 3) {
+    if (tag.value.length >= 2) {
         form.tags.push(tag.value)
         tag.value = ''
     }

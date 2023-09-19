@@ -20,8 +20,6 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [IndexController::class, 'index'])
 ->middleware('auth');
-Route::get('/show', [IndexController::class, 'show'])
-->middleware('auth');
 
 Route::resource('entry', EntryController::class)
 ->middleware('auth');

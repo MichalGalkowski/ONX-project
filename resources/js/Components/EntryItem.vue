@@ -12,17 +12,26 @@
         <p class="date mt-4">Dodano: {{ createdAt }}</p>
         <p class="date">Ostatnia aktualizacja: {{ updatedAt }}</p>
         <div class="flex justify-end mt-2 pt-4  border-t-2">
-            <Link :href="route('entry.edit', props.entry.id)"><button class="btn">Edytuj</button></Link>
+            <div v-if="user.role === 'admin'">
+                <Link :href="route('entry.edit', props.entry.id)"><button class="btn">Edytuj</button></Link>
+            </div>
             <Link :href="route('entry.show', props.entry.id)"><button class="btn ml-4">Otwórz</button></Link>
         </div>
     </div>
 </template>
 
 <script setup>
-import { Link } from '@inertiajs/vue3'
+import { Link, usePage } from '@inertiajs/vue3'
+import { computed } from 'vue';
+
+const page = usePage()
 const props = defineProps({
     entry: Object
 })
+const user = computed(
+    () => page.props.user,
+)
+
 const createdAt = new Date(props.entry.created_at).toLocaleString('pl-PL')
 const updatedAt = new Date(props.entry.updated_at).toLocaleString('pl-PL')
 </script>
